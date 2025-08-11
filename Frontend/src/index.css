@@ -1,0 +1,32 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+
+@import "tailwindcss";
+
+/* @font-face {
+  font-family: 'Merchant';
+  src: url('/fonts/Merchant-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+} */
+ 
+ 
+ 
+ 
+
+@font-face {
+  font-family:'Merchant';
+  src: url('/fonts/Merchant-Thin.ttf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+ 
+ 
+h1,h2 {
+  font-family: merchant ;
+}
+ 
+ 
+ 
