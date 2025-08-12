@@ -1,4 +1,26 @@
+# Node modules ignore
+node_modules/
+**/node_modules/
 
-Frontend/.gitignore
-Backend/.gitignore
-Frontend-Cms/.gitignore
+# Environment files ignore
+.env
+**/.env
+
+# Build and dist folders
+dist/
+build/
+**/dist/
+**/build/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE specific
+.vscode/
+.idea/
+.DS_Store
