@@ -185,7 +185,6 @@ const ManageGallery = () => {
                           onClick={() => {
                             setEditingItem(item);
                             setMode("edit");
-                            console.log(item.id);
                           }}
                           className="hover:text-blue-600"
                         >

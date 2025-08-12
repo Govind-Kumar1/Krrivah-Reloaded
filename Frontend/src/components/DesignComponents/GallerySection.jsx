@@ -15,7 +15,7 @@ const GallerySection = () => {
         }
 
         const result = await response.json();
-        console.log("Fetched Gallery Data:", result);
+        // console.log("Fetched Gallery Data:", result);
 
         if (Array.isArray(result.data)) {
           setImages(result.data);

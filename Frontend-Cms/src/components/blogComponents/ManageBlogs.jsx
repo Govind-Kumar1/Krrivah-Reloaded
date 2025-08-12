@@ -21,7 +21,7 @@ const ManageBlogs = () => {
           withCredentials: true,
         });
       setData(res.data.data);
-      console.log(res.data);
+      // console.log(res.data);
       
     } catch (err) {
       setError("Failed to fetch blogs.");

@@ -39,14 +39,17 @@ const FeaturedProjects = () => {
           throw new Error("API response did not contain a valid projects array.");
         }
 
-        const formattedProjects = projectsFromApi.filter((e)=>e.isActive).map((p) => ({
+          const formattedProjects = projectsFromApi.filter((e)=>e.isActive).map((p) => ({
           id: p.id,
           title: p.title,
           image: p.images?.[0] || "",
-          tags: [p.category, p.location].filter(Boolean), // ✅ Location added in tags
+          thumbnail: p.thumbnail || "",
+          // ✅ Include both category and location in tags
+          tags: [p.category, p.location].filter(Boolean),
           description: p.short_des || "A brief description of this wonderful project.",
           route: `/project/${p.id}`,
         }));
+
 
         setProjects(formattedProjects);
       } catch (err) {
@@ -110,7 +113,7 @@ const FeaturedProjects = () => {
         {/* Previous Project */}
         <div className="w-[420px] h-[600px] relative overflow-hidden hidden lg:block">
           <img
-            src={projects[(current - 1 + projects.length) % projects.length].image}
+            src={projects[(current - 1 + projects.length) % projects.length].thumbnail}
             alt="Project Left"
             className="w-full h-full object-cover"
           />
@@ -120,7 +123,7 @@ const FeaturedProjects = () => {
         <div className="w-full max-w-[460px] flex flex-col mx-auto">
           <div className="relative w-full h-[520px] md:h-[600px] px-4 md:px-0 overflow-hidden rounded-md">
             <img
-              src={projects[current].image}
+              src={projects[current].thumbnail}
               alt={projects[current].title}
               className="w-full h-full object-cover"
             />
@@ -163,7 +166,7 @@ const FeaturedProjects = () => {
         {/* Next Project */}
         <div className="w-[420px] h-[600px] overflow-hidden shadow-md hidden lg:block">
           <img
-            src={projects[(current + 1) % projects.length].image}
+            src={projects[(current + 1) % projects.length].thumbnail}
             alt="Project Right"
             className="w-full h-full object-cover"
           />

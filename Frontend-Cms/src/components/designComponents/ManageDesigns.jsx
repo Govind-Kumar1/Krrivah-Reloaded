@@ -33,7 +33,7 @@ const ManageDesigns = () => {
       });
 
       const fetched = res.data.data || [];
-      console.log(fetched);
+      // console.log(fetched);
       
 
       // Merge static list with fetched data

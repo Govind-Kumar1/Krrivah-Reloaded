@@ -18,24 +18,45 @@ const StartCard = ({
 
   const location = useLocation();
   const isHome = location.pathname === "/";
-  const effectiveTextColor = textColor || (isHome ? "text-white" : "text-black");
-  const labelColor = effectiveTextColor === "text-white" ? "text-gray-400" : "text-[#5F5F5F]";
+  const effectiveTextColor =
+    textColor || (isHome ? "text-white" : "text-black");
+  const labelColor =
+    effectiveTextColor === "text-white"
+      ? "text-gray-400"
+      : "text-[#5F5F5F]";
+
+  // Suffix splitting logic
+  const firstChar = suffix.charAt(0);
+  const restSuffix = suffix.slice(1);
 
   return (
-    <h2
+    <p
       ref={ref}
       className="flex flex-col p-4 text-left border border-gray-700 bg-transparent rounded-lg"
     >
-      <h3 className={`${fontSize} font-semibold mb-2 ${effectiveTextColor}`}>
+      <h2 className={`${fontSize} font-semibold mb-2 ${effectiveTextColor}`}>
         {inView ? <CountUp end={end} duration={duration} /> : "0"}
-        {suffix && (
-          <span className="ml-1 text-base lg:text-lg align-top">{suffix}</span>
+        
+        {/* Agar suffix ka first char 'K' ho */}
+        {firstChar === "K" ? (
+          <>
+            <span className="ml-1">{firstChar}</span>
+            {restSuffix && (
+              <span className="ml-1 text-base lg:text-xl align-top">
+                {restSuffix}
+              </span>
+            )}
+          </>
+        ) : (
+          suffix && (
+            <span className="ml-1 text-base lg:text-lg align-top">
+              {suffix}
+            </span>
+          )
         )}
-      </h3>
-      <p className={`text-sm ${labelColor}`}>
-        {label}
-      </p>
-    </h2>
+      </h2>
+      <p className={`text-sm ${labelColor}`}>{label}</p>
+    </p>
   );
 };
 

@@ -21,7 +21,7 @@ const ManageStatistics = () => {
     try {
       const res = await axios.get(`${api_url}/api/stat`);
       setData(res.data.data || []);
-      console.log("Fetched stats:", res.data.data);
+      // console.log("Fetched stats:", res.data.data);
     } catch (error) {
       console.error("Failed to fetch stats", error);
     } finally {

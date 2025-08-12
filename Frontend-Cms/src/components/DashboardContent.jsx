@@ -18,7 +18,7 @@ const DashboardContent = () => {
         withCredentials:true,
       });
       setData(res.data.data || []);
-      console.log("Fetched Dashboard stats:", res.data.data);
+      // console.log("Fetched Dashboard stats:", res.data.data);
     } catch (error) {
       console.error("Failed to fetch Dashboard stats", error);
     } finally {
