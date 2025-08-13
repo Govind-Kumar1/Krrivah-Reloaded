@@ -17,12 +17,12 @@ const JournalSection = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/blog");
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/blog`);
         const data = await response.json();
         if (data.success) {
           setPosts(data.data.slice(0, 3)); // ✅ Show only 3 latest
         }
-      } catch (error) {
+      } catch (error) { 
         console.error("Error fetching blog data:", error);
       }
     };

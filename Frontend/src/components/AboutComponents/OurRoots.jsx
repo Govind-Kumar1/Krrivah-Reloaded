@@ -17,7 +17,7 @@ const OurRoots = () => {
     useEffect(() => {
       const fetchStats = async () => {
         try {
-          const res = await axios.get("http://localhost:5000/api/stat");
+          const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/stat`);
           // Assuming you might fetch other vision data later, 
           // it's good practice to update state like this.
           setVisionData(prevData => ({

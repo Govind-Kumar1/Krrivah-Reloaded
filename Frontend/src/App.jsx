@@ -43,7 +43,7 @@ function App() {
           <Route path="/contact" element={<Contacts />} />
           <Route path="/projects" element={<Project />} />
             <Route path="/blogdetails/:id" element={<BlogDetails />} />
-          <Route path="/projectdetails" element={<ProjectDetail />} />
+          <Route path="/projectdetails" element={<ProjectDetail />} /> 
           <Route path="/project/:id" element={<ProjectDetail/>} />
           {/* <Route path="/innara" element={<InnaraSection />} />
 

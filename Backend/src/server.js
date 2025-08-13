@@ -22,9 +22,9 @@ const app = express();
 app.use(cookieParser()); // First load cookies
 
 // 👇 CORS configuration updated to allow your frontend URL
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
+const allowedOrigins = ['https://cms-krrivah.vercel.app', 'https://frontendkrrivah.vercel.app','http://localhost:5173', 'http://localhost:5174', ];
 
-app.use(cors({
+app.use(cors({ 
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
@@ -49,7 +49,7 @@ app.use('/api/dashboard',dashboardRoutes);
 
 // Test route
 app.get("/", (req, res) => {
-    res.send("Krrivah CMS Backend is Running "); 
+    res.send("Krrivah CMS Backend is Running ");  
 });
 
 // Error middleware (should be loaded after routes)

@@ -25,5 +25,8 @@
     "jsonwebtoken": "^9.0.2",
     "multer": "^2.0.1",
     "multer-storage-cloudinary": "^4.0.0"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   }
 }

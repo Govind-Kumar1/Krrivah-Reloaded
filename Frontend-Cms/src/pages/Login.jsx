@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+const api_url = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 
 const LoginPage = () => {
     // State to hold form data (username and password)
@@ -27,12 +29,12 @@ const LoginPage = () => {
 
         try { 
             // API endpoint for login
-            const API_URL = 'http://localhost:5000/api/auth/login';
+            const API_URL = `${api_url}/api/auth/login`;
 
             // Send POST request to the backend
             const response = await axios.post(API_URL, formData, {
                 withCredentials: true, // Important for sending/receiving cookies
-            });
+            }); 
 
             // If login is successful
             // console.log('Login successful:', response.data);
