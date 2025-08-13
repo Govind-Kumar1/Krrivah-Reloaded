@@ -49,7 +49,7 @@ function App() {
 
         <Route path="/la-oceia" element={<OceiaSection />} /> */}
         </Routes>
-        <Footer />
+        <Footer /> 
       </Router> 
     </>
   ) 
