@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-const api_url = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const api_url = import.meta.env.VITE_API_URL;
 
 
 const LoginPage = () => {
