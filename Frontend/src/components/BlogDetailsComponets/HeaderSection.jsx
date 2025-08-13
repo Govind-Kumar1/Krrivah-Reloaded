@@ -1,5 +1,5 @@
 import React from "react";
- const API_URL = `${import.meta.env.VITE_BACKEND_URL}/blog`;
+ const API_URL =`${import.meta.env.VITE_BACKEND_URL}/blog`;
 const HeaderSection = ({ post }) => {
   if (!post) {
     return (

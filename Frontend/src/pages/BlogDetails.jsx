@@ -7,7 +7,8 @@ import HeaderSection from '../components/BlogDetailsComponets/HeaderSection';
 import ArticleSection from '../components/BlogDetailsComponets/ArticleSection';
 import RelatedBlogs from '../components/BlogDetailsComponets/RelatedBlogs';
 
- const API_URL = `${import.meta.env.VITE_BACKEND_URL}/blog`;
+  const API_URL =`${import.meta.env.VITE_BACKEND_URL}/blog`;
+
 const BlogDetail = () => {
   const { id } = useParams();
 
