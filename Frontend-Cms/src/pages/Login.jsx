@@ -9,7 +9,7 @@ const LoginPage = () => {
     // State to hold form data (username and password)
     const [formData, setFormData] = useState({
         email: '',
-        password: '',
+        password: '',git 
     });
     // State for loading indicator and error messages
     const [loading, setLoading] = useState(false);
