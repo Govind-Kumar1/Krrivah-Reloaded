@@ -40,7 +40,7 @@ const OurRoots = () => {
   };
   return ( 
     <section className="bg-[#EAE8E5] w-full px-6 lg:px-10 py-20">
-      <div className="max-w-[1500px] mx-auto flex flex-col lg:flex-row gap-12 items-start">
+      <div className="max-w-[1800px] mx-auto flex flex-col lg:flex-row gap-12 items-start">
 
         {/* Left Content */}
         <div className="flex-1">
@@ -68,7 +68,7 @@ const OurRoots = () => {
         </div>
 
         {/* Right Image Layer */}
-        <div className="relative pl-10 lg:pl-0 lg:w-[708px] lg:h-[760px]">
+        <div className="relative pl-10 lg:pl-0 lg:w-[708px] lg:h-[760px] flex-shrink-0">
           <img
             src="/SCENE 3.png"
             alt="Background"
