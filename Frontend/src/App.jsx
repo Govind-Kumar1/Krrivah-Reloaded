@@ -1,22 +1,55 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { Suspense, lazy } from 'react'
 
-import Home from './pages/Home.jsx'
-import About from './pages/About.jsx'
-import Navbar from './components/Navbar.jsx'
+// Lazy imports for pages
+const Home = lazy(() => import('./pages/Home.jsx'))
+const About = lazy(() => import('./pages/About.jsx'))
+const Design = lazy(() => import('./pages/Design.jsx'))
+const Blogs = lazy(() => import('./pages/Blogs.jsx'))
+const Contacts = lazy(() => import('./pages/Contacts.jsx'))
+const Project = lazy(() => import('./pages/Project.jsx'))
+const BlogDetails = lazy(() => import('./pages/BlogDetails.jsx'))
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail.jsx'))
+
+// Components
 import Footer from './components/Footer.jsx'
-import Design from './pages/Design.jsx'
-import Blogs from './pages/Blogs.jsx'
-import Contacts from './pages/Contacts.jsx'
-import Project from './pages/Project.jsx'
- import BlogDetails from './pages/BlogDetails.jsx' 
-import ProjectDetail from './pages/ProjectDetail.jsx'
-// import InnaraSection from '../../../../krrivah/src/components/ProjectDetailComponents/InnaraSection.jsx'
-// import OceiaSection from '../../../../krrivah/src/components/ProjectDetailComponents/OceiaSection.jsx'
-// import SingleProject from './components/ProjectDetailComponents/SingleProject.jsx'
+
+// Loading UI Component
+function LoadingScreen() {
+  return (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      background: '#0f172a',
+      flexDirection: 'column',
+      fontFamily: 'sans-serif',
+      color: 'white'
+    }}>
+      <div className="spinner" style={{
+        width: '50px',
+        height: '50px',
+        border: '6px solid rgba(255,255,255,0.3)',
+        borderTop: '6px solid #38bdf8',
+        borderRadius: '50%',
+        animation: 'spin 1s linear infinite'
+      }}></div>
+      <p style={{ marginTop: '15px', opacity: 0.8 }}>Loading...</p>
+      <style>{`
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}</style>
+    </div>
+  )
+}
+
 function App() {
-  return ( 
+  return (
     <>
       {/* Toast container for global use */}
       <ToastContainer
@@ -33,26 +66,24 @@ function App() {
       />
 
       {/* Application Routes */}
-      <Router> 
-        {/* <Navbar /> if needed globally */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/design" element={<Design />} />
-          <Route path="/blogs" element={<Blogs />} /> 
-          <Route path="/contact" element={<Contacts />} />
-          <Route path="/projects" element={<Project />} />
+      <Router>
+        <Suspense fallback={<LoadingScreen />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/design" element={<Design />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/contact" element={<Contacts />} />
+            <Route path="/projects" element={<Project />} />
             <Route path="/blogdetails/:id" element={<BlogDetails />} />
-          <Route path="/projectdetails" element={<ProjectDetail />} /> 
-          <Route path="/project/:id" element={<ProjectDetail/>} />
-          {/* <Route path="/innara" element={<InnaraSection />} />
-
-        <Route path="/la-oceia" element={<OceiaSection />} /> */}
-        </Routes>
-        <Footer /> 
-      </Router> 
+            <Route path="/projectdetails" element={<ProjectDetail />} />
+            <Route path="/project/:id" element={<ProjectDetail />} />
+          </Routes>
+        </Suspense>
+        <Footer />
+      </Router>
     </>
-  ) 
+  )
 }
 
 export default App
