@@ -157,7 +157,7 @@ const ProjectDetails = () => {
         {/* Next Project */}
         <div className="w-[420px] h-[600px] overflow-hidden shadow-md hidden lg:block">
           <img
-            src={projects[(current + 1) % projects.length].image}
+            src={projects[(current + 1) % projects.length].thumbnail}
             alt="Project Right"
             className="w-full h-full object-cover"
           />
